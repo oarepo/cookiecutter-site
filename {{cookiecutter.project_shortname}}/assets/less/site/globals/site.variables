@@ -1,1 +1,1 @@
-@import "@less/invenio_app_rdm/variables";
+@import "@less/{{cookiecutter.app_package | replace('-', '_')}}/variables";

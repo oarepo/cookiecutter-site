@@ -1,2 +1,2 @@
-@import "@less/invenio_app_rdm/theme";
+@import "@less/{{cookiecutter.app_package | replace('-', '_')}}/theme";
 @import "site.variables";
