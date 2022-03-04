@@ -20,7 +20,7 @@ uwsgi-tools = ">=1.1.1"
 {%- endif %}
 {%- if cookiecutter.datamodel_package_path == '' and cookiecutter.datamodel_package %}
 {{ cookiecutter.datamodel_package }} = ">=1.0.0.dev1"
-{%- elseif cookiecutter.datamodel_package %}
+{%- elif cookiecutter.datamodel_package %}
 {{cookiecutter.datamodel_package}} = {path = "{{ cookiecutter.datamodel_package_path }}", editable = true}
 {%- endif %}
 
