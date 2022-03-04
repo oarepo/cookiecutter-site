@@ -14,5 +14,6 @@
   "development_tools": ["yes", "no"],
   "app_package": "oarepo-app-custom",
   "app_package_path": "",
-  "extra_packages": {}
+  "datamodel_package": "",
+  "datamodel_package_path": ""
 }
