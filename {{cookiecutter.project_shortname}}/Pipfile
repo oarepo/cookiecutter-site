@@ -19,7 +19,7 @@ uwsgi-tools = ">=1.1.1"
 {{cookiecutter.app_package}} = {path = "{{ cookiecutter.app_package_path }}", editable = true, extras = ["{{ cookiecutter.database }}", "elasticsearch{{cookiecutter.elasticsearch}}"{% if cookiecutter.file_storage == 'S3' %}, "s3"{% endif %}]}
 {% endif %}
 {% for package, details in cookiecutter.extra_packages|dictsort %}
-{{package}} = { {%- if details.path %}path = "{{details.path}}", editable=true{%- endif %} {%- if details.version %},version = {{details.version}}{%- endif%} }
+{{package}} = { {%- if details.get('path') %}path = "{{details.path}}", editable=true{%- endif %} {%- if details.get('version') %},version = {{details.version}}{%- endif%} }
 {% endfor %}
 
 [requires]
