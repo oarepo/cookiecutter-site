@@ -38,4 +38,5 @@ To generate correct files, please provide the following input to Cookiecutter:
 - `package_name` Package/Module name for Python, must follow `PEP 0008 <https://www.python.org/dev/peps/pep-0008/>`\_.
 - `github_repo` GitHub repository of the project in form of `USER/REPO`, not the full GitHub URL.
 - `app_package` Name of an [OARepo application package](https://github.com/oarepo/cookiecutter-oarepo-app) this site should be using.
+- `extra_packages` Any additional package dependencies of the project.
 - `**TODO**` `**TODO**`

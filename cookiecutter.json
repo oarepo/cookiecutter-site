@@ -13,5 +13,6 @@
   "file_storage": ["local", "S3"],
   "development_tools": ["yes", "no"],
   "app_package": "oarepo-app-custom",
-  "app_package_path": ""
+  "app_package_path": "",
+  "extra_packages": {}
 }
