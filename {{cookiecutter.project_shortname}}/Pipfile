@@ -18,9 +18,9 @@ uwsgi-tools = ">=1.1.1"
 {%- else %}
 {{cookiecutter.app_package}} = {path = "{{ cookiecutter.app_package_path }}", editable = true, extras = ["{{ cookiecutter.database }}", "elasticsearch{{cookiecutter.elasticsearch}}"{% if cookiecutter.file_storage == 'S3' %}, "s3"{% endif %}]}
 {%- endif %}
-{%- if cookiecutter.datamodel_package_path == '' %}
+{%- if cookiecutter.datamodel_package_path == '' and cookiecutter.datamodel_package %}
 {{ cookiecutter.datamodel_package }} = ">=1.0.0.dev1"
-{%- else %}
+{%- elseif cookiecutter.datamodel_package %}
 {{cookiecutter.datamodel_package}} = {path = "{{ cookiecutter.datamodel_package_path }}", editable = true}
 {%- endif %}
 
