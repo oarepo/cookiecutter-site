@@ -1,2 +1,0 @@
-@import "@less/{{cookiecutter.app_package | replace('-', '_')}}/theme";
-@import "site.variables";
