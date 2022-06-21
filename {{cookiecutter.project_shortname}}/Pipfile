@@ -55,6 +55,12 @@ CairoSVG = ">=2.5.2,<3.0.0"
 # Werkzeug - due to https://github.com/pallets/werkzeug/issues/2397
 Werkzeug = ">=1.0,!=2.1.0,!=2.1.1"
 
+invenio-search = {extras = ["elasticsearch{{cookiecutter.elasticsearch}}"], version = ">=1.4.2,<1.5.0" }
+
+{% if cookiecutter.file_storage == 'S3' %}
+invenio-s3 = "~=1.0.5"
+{% endif %}
+
 [requires]
 python_version = "{{ cookiecutter.python_version.split()[0] }}"
 
