@@ -7,19 +7,63 @@ verify_ssl = true
 check-manifest = ">=0.25"
 
 [packages]
+# TODO: this dependency list, except for data package, should be moved to oarepo package
 uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
-{%- if cookiecutter.app_package_path == '' %}
-{{cookiecutter.app_package}} = {extras = ["{{ cookiecutter.database }}", "elasticsearch{{cookiecutter.elasticsearch}}"{% if cookiecutter.file_storage == 'S3' %}, "s3"{% endif %}], version = ">=1.0.0.dev1"}
-{%- else %}
-{{cookiecutter.app_package}} = {path = "{{ cookiecutter.app_package_path }}", editable = true, extras = ["{{ cookiecutter.database }}", "elasticsearch{{cookiecutter.elasticsearch}}"{% if cookiecutter.file_storage == 'S3' %}, "s3"{% endif %}]}
-{%- endif %}
-{%- if cookiecutter.datamodel_package_path == '' and cookiecutter.datamodel_package %}
-{{ cookiecutter.datamodel_package }} = ">=1.0.0.dev1"
-{%- elif cookiecutter.datamodel_package %}
-{{cookiecutter.datamodel_package}} = {path = "{{ cookiecutter.datamodel_package_path }}"}
-{%- endif %}
+# {%- if cookiecutter.app_package_path == '' %}
+# {{cookiecutter.app_package}} = {extras = ["{{ cookiecutter.database }}", "elasticsearch{{cookiecutter.elasticsearch}}"{% if cookiecutter.file_storage == 'S3' %}, "s3"{% endif %}], version = ">=1.0.0.dev1"}
+# {%- else %}
+# {{cookiecutter.app_package}} = {path = "{{ cookiecutter.app_package_path }}", editable = true, extras = ["{{ cookiecutter.database }}", "elasticsearch{{cookiecutter.elasticsearch}}"{% if cookiecutter.file_storage == 'S3' %}, "s3"{% endif %}]}
+# {%- endif %}
+# {%- if cookiecutter.datamodel_package_path == '' and cookiecutter.datamodel_package %}
+# {{ cookiecutter.datamodel_package }} = ">=1.0.0.dev1"
+# {%- elif cookiecutter.datamodel_package %}
+# {{cookiecutter.datamodel_package}} = {path = "{{ cookiecutter.datamodel_package_path }}"}
+# {%- endif %}
+invenio-app = ">=1.3.4,<1.4.0"
+invenio-base = ">=1.2.11,<1.3.0"
+invenio-cache = ">=1.1.1,<1.2.0"
+invenio-celery = ">=1.2.4,<1.3.0"
+invenio-config = ">=1.0.3,<1.1.0"
+invenio-i18n = ">=1.3.1,<1.4.0"
+invenio-db = {extras = ["postgresql","mysql","versioning"], version = ">=1.0.14,<1.1.0"}
+# Invenio base bundle
+invenio-admin = ">=1.3.2,<1.4.0"
+invenio-assets = ">=1.2.7,<1.3.0"
+invenio-formatter = ">=1.1.3,<1.2.0"
+invenio-logging = {extras = ["sentry-sdk"], version = ">=1.3.2,<1.4.0"}
+invenio-mail = ">=1.0.2,<1.1.0"
+invenio-rest = ">=1.2.8,<1.3.0"
+invenio-theme = ">=1.3.23,<1.4.0"
+# Invenio auth bundle
+invenio-access = ">=1.4.4,<1.5.0"
+invenio-accounts = ">=2.0.0,<2.1.0"
+invenio-oauth2server = ">=1.3.5,<1.4.0"
+invenio-oauthclient = ">=2.0.0.dev0,<2.1.0"
+invenio-userprofiles = ">=2.0.0,<2.1.0"
+# Invenio metdata bundle
+invenio-indexer = ">=1.2.7,<1.3.0"
+invenio-jsonschemas = ">=1.1.4,<1.2.0"
+invenio-oaiserver = ">=1.4.2,<1.5.0"
+invenio-pidstore = ">=1.2.3,<1.3.0"
+invenio-records-rest = ">=1.9.0,<1.10.0"
+invenio-records-ui = ">=1.2.0,<1.3.0"
+invenio-records = ">=1.7.3,<1.8.0"
+invenio-search-ui = ">=2.1.1,<2.2.0"
+# Invenio files bundle
+invenio-files-rest = ">=1.3.3,<1.4.0"
+invenio-previewer = ">=1.3.6,<1.4.0"
+invenio-records-files = ">=1.2.1,<1.3.0"
+# {{cookiecutter.datamodel_package}}
+# {%- if cookiecutter.datamodel_package_path == '' and cookiecutter.datamodel_package %}
+# {{ cookiecutter.datamodel_package }} = ">=1.0.0.dev1"
+# {%- elif cookiecutter.datamodel_package %}
+# {{cookiecutter.datamodel_package}} = {path = "{{ cookiecutter.datamodel_package_path }}"}
+# {%- endif %}
+CairoSVG = ">=2.5.2,<3.0.0"
+# Werkzeug - due to https://github.com/pallets/werkzeug/issues/2397
+Werkzeug = ">=1.0,!=2.1.0,!=2.1.1"
 
 [requires]
 python_version = "{{ cookiecutter.python_version.split()[0] }}"
