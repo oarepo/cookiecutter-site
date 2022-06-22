@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 check-manifest = ">=0.25"
+invenio-cli = ">=1.0.4"
 
 [packages]
 # TODO: this dependency list, except for data package, should be moved to oarepo package

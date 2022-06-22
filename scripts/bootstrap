@@ -27,5 +27,15 @@ INVENIO_LOCAL_INSTANCE_PATH=$(pipenv run invenio shell --no-term-title -c "print
 cp -r ./static/. ${INVENIO_LOCAL_INSTANCE_PATH}/static/
 cp -r ./assets/. ${INVENIO_LOCAL_INSTANCE_PATH}/assets/
 
+invenio-cli check-requirements -d
+
 pipenv run invenio collect -v
 pipenv run invenio webpack buildall
+
+invenio-cli services setup -N -f
+
+# create db tables
+pipenv run invenio alembic upgrade heads
+
+pipenv run invenio index destroy --yes-i-know || true
+pipenv run invenio index init --force
