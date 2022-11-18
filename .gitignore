@@ -104,3 +104,8 @@ venv.bak/
 .mypy_cache/
 
 *.sublime-*
+
+
+# local development
+.DS_Store
+.idea/

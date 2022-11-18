@@ -73,3 +73,8 @@ data/.minio.sys
 
 # Celery
 celerybeat-schedule
+
+# local development
+.DS_Store
+.idea/
+
