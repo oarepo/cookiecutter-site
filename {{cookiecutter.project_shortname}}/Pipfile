@@ -67,8 +67,8 @@ invenio-s3 = "~=1.0.5"
 # invenio workarounds - dependency hell
 ftfy = { version = "<5.0.0,>=4.4.3" }
 invenio-administration = { version = ">=1.0.0,<2.0.0" }
-invenio-users-resources = { version = ">=0.3.2, <1.0.0"}
-invenio-requests = { version = "1.0.1"}
+invenio-users-resources = { version = ">=1.0.1"}
+invenio-requests = { version = ">=1.0.3"}
 
 
 [requires]
