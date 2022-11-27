@@ -61,10 +61,9 @@ Sphinx = ">=4.5.0"
 invenio-search = { version = ">=2.1.0,<3.0.0", extras = ["opensearch2"] }
 invenio-s3 = "~=1.0.5"
 
-# oarepo
-{{cookiecutter.theme_package}} = { path ="{{cookiecutter.theme_dir}}", editable = true }
+oarepo-ui = ">=4.0.10"
 
-# invenio workarounds - dependency hell
+# invenio workarounds - normally present in rdm-app, rdm model packages
 ftfy = { version = "<5.0.0,>=4.4.3" }
 invenio-administration = { version = ">=1.0.0,<2.0.0" }
 invenio-users-resources = { version = ">=1.0.1"}

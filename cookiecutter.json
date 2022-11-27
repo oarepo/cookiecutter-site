@@ -11,7 +11,5 @@
   "database": ["postgresql"],
   "search": ["opensearch2", "opensearch1", "elasticsearch7"],
   "file_storage": ["local", "S3"],
-  "development_tools": ["yes", "no"],
-  "theme_dir": "../theme",
-  "theme_package": "theme"
+  "development_tools": ["yes", "no"]
 }
