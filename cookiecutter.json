@@ -1,6 +1,7 @@
 {
     "project_name": "My Site",
-    "project_shortname": "{{ cookiecutter.project_name | slugify() }}",
+    "project_dir": "{{ cookiecutter.project_name | slugify() }}",
+    "project_shortname": "{{ cookiecutter.project_name | slugify() | replace('-', '_') }}",
     "project_site": "{{ cookiecutter.project_shortname }}.com",
     "github_repo": "{{ cookiecutter.project_shortname }}/{{ cookiecutter.project_shortname }}",
     "description": "{{ cookiecutter.project_name }} InvenioRDM Instance",
