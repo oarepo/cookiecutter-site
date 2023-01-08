@@ -35,7 +35,7 @@ services:
     restart: "unless-stopped"
     read_only: true
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
   {%- if cookiecutter.database == 'postgresql'%}
   db:
     image: postgres:12.4
@@ -45,13 +45,13 @@ services:
       - "POSTGRES_PASSWORD={{cookiecutter.project_shortname}}"
       - "POSTGRES_DB={{cookiecutter.project_shortname}}"
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
   pgadmin:
     image: dpage/pgadmin4:5.2
     restart: "unless-stopped"
     ports:
-      - "5050:80"
-      - "5051:443"
+      - "127.0.0.1:5050:80"
+      - "127.0.0.1:5051:443"
     environment:
       PGADMIN_DEFAULT_EMAIL: "{{cookiecutter.author_email}}"
       PGADMIN_DEFAULT_PASSWORD: "{{cookiecutter.project_shortname}}"
@@ -67,12 +67,12 @@ services:
       - "MYSQL_USER={{cookiecutter.project_shortname}}"
       - "MYSQL_PASSWORD={{cookiecutter.project_shortname}}"
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3306:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: "unless-stopped"
     ports:
-      - '8080:80'
+      - '127.0.0.1:8080:80'
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: {{cookiecutter.project_shortname}}
@@ -81,8 +81,8 @@ services:
     image: rabbitmq:3.8-management
     restart: "unless-stopped"
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - "127.0.0.1:15672:15672"
+      - "127.0.0.1:5672:5672"
   es:
     {%- if cookiecutter.elasticsearch == '7' %}{# Do not update to 7.11 #}
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
@@ -105,8 +105,8 @@ services:
         hard: -1
     mem_limit: 1g
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - "127.0.0.1:9200:9200"
+      - "127.0.0.1:9300:9300"
   kibana:
     {%- if cookiecutter.elasticsearch == '7'%}{# Do not update to 7.11 #}
     image: docker.elastic.co/kibana/kibana-oss:7.10.2
@@ -117,14 +117,14 @@ services:
       - "ELASTICSEARCH_HOSTS=http://es:9200"
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
-      - "5601:5601"
+      - "127.0.0.1:5601:5601"
 {%- if cookiecutter.file_storage == 'S3'%}
   s3:
     image: minio/minio
     restart: "unless-stopped"
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
     environment:
       MINIO_ROOT_USER: CHANGE_ME
       MINIO_ROOT_PASSWORD: CHANGE_ME
