@@ -28,8 +28,8 @@ services:
     image: {{cookiecutter.project_shortname}}-frontend
     restart: "unless-stopped"
     ports:
-      - "127.0.0.1:280"
-      - "127.0.0.1:643"
+      - "127.0.0.1:280:280"
+      - "127.0.0.1:643:643"
   cache:
     image: redis:7
     restart: "unless-stopped"
