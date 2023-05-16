@@ -1,4 +1,3 @@
-{%- raw -%}
 
 
 {#
@@ -11,7 +10,8 @@
     under the terms of the MIT License; see LICENSE file for more details.
 #}
 <div>
-    <header class="theme header nr-documents">
+    <header class="theme header {{cookiecutter.project_shortname}}">
+{%- raw -%}
       {%- block site_banner %}
       {%- endblock site_banner %}
       <div class="outer-navbar">
@@ -70,7 +70,9 @@
 
                 {%- if config.THEME_SEARCHBAR %}
                   {%- block navbar_search %}
-                    {%- include "nr_docs/searchbar.html" %}
+{% endraw %}
+                    {{ "{%-" }} include "{{cookiecutter.project_shortname}}/searchbar.html" {{ "%}" }}
+{% raw %}
                   {%- endblock navbar_search %}
                 {%- endif %}
 
