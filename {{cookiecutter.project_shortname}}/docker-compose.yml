@@ -5,34 +5,34 @@ services:
       file: docker-services.yml
       service: cache
     ports:
-      - "127.0.0.1:${INVENIO_REDIS_PORT}:6379"
+      - "${INVENIO_REDIS_HOST}:${INVENIO_REDIS_PORT}:6379"
   db:
     extends:
       file: docker-services.yml
       service: db
     ports:
-      - "127.0.0.1:${INVENIO_DATABASE_PORT}:5432"
+      - "${INVENIO_DATABASE_HOST}:${INVENIO_DATABASE_PORT}:5432"
   mq:
     extends:
       file: docker-services.yml
       service: mq
     ports:
-      - "127.0.0.1:${INVENIO_RABBIT_ADMIN_PORT}:15672"
-      - "127.0.0.1:${INVENIO_RABBIT_PORT}:5672"
+      - "${INVENIO_RABBIT_HOST}:${INVENIO_RABBIT_ADMIN_PORT}:15672"
+      - "${INVENIO_RABBIT_HOST}:${INVENIO_RABBIT_PORT}:5672"
   search:
     extends:
       file: docker-services.yml
       service: search
     ports:
-      - "127.0.0.1:${INVENIO_OPENSEARCH_PORT}:9200"
-      - "127.0.0.1:${INVENIO_OPENSEARCH_CLUSTER_PORT}:9600"
+      - "${INVENIO_OPENSEARCH_HOST}:${INVENIO_OPENSEARCH_PORT}:9200"
+      - "${INVENIO_OPENSEARCH_HOST}:${INVENIO_OPENSEARCH_CLUSTER_PORT}:9600"
 {%- if cookiecutter.development_tools == "yes"%}
   opensearch-dashboards:
     extends:
       file: docker-services.yml
       service: opensearch-dashboards
     ports:
-      - "127.0.0.1:${INVENIO_OPENSEARCH_DASHBOARD_PORT}:5601"
+      - "${INVENIO_OPENSEARCH_DASHBOARD_HOST}:${INVENIO_OPENSEARCH_DASHBOARD_PORT}:5601"
     expose:
       - "5601"
   pgadmin:
@@ -46,7 +46,7 @@ services:
       file: docker-services.yml
       service: s3
     ports:
-      - "127.0.0.1:${INVENIO_S3_PORT}:9000"
-      - "127.0.0.1:${INVENIO_S3_PORT1}:9001"
+      - "${INVENIO_S3_HOST}:${INVENIO_S3_PORT}:9000"
+      - "${INVENIO_S3_HOST}:${INVENIO_S3_PORT1}:9001"
 volumes:
   data:
