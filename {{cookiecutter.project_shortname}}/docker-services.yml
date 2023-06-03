@@ -28,7 +28,7 @@ services:
     restart: "unless-stopped"
     read_only: true
   db:
-    image: postgres:12.4
+    image: postgres:15-alpine
     restart: "unless-stopped"
     environment:
       - "POSTGRES_USER=${INVENIO_DATABASE_USER}"
