@@ -44,8 +44,11 @@ INVENIO_PGADMIN_PASSWORD="{{cookiecutter.project_shortname}}"
 INVENIO_S3_HOST=localhost
 INVENIO_S3_PORT=9000
 INVENIO_S3_PORT1=9001
-INVENIO_S3_ACCESS_KEY="{{cookiecutter.project_shortname}}"
-INVENIO_S3_SECRET_KEY="{{cookiecutter.project_shortname}}"
+# must be at least 3 characters
+INVENIO_S3_ACCESS_KEY="aa-{{cookiecutter.project_shortname}}-aa"
+
+# must be at least 8 characters
+INVENIO_S3_SECRET_KEY="aaa-{{cookiecutter.project_shortname}}-aaa"
 
 
 # INVENIO_MAIL_SERVER=postfix-relay.mail.svc.cluster.local
