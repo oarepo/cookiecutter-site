@@ -64,7 +64,7 @@ services:
         hard: 65536
     mem_limit: 2g
   opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:{{ dashboards_version }}
+    image: opensearchproject/opensearch-dashboards:latest
     expose:
       - "5601"
     environment:
