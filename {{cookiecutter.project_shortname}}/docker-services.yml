@@ -35,7 +35,7 @@ services:
       - "POSTGRES_PASSWORD=${INVENIO_DATABASE_PASSWORD}"
       - "POSTGRES_DB=${INVENIO_DATABASE_DBNAME}"
   pgadmin:
-    image: dpage/pgadmin4:6
+    image: dpage/pgadmin4:latest
     restart: "unless-stopped"
     environment:
       PGADMIN_DEFAULT_EMAIL: "${INVENIO_PGADMIN_EMAIL}"
@@ -46,7 +46,7 @@ services:
     image: rabbitmq:3-management
     restart: "unless-stopped"
   search:
-    image: opensearchproject/opensearch:2.3.0
+    image: opensearchproject/opensearch:2
     restart: "unless-stopped"
     environment:
       # settings only for development. DO NOT use in production!
@@ -72,7 +72,7 @@ services:
       - 'OPENSEARCH_HOSTS=["http://search:9200"]'
       - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true"
   s3:
-    image: minio/minio
+    image: minio/minio:latest
     restart: "unless-stopped"
     environment:
       MINIO_ROOT_USER: ${INVENIO_S3_ACCESS_KEY}
